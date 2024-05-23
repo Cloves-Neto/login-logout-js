@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIOT</title>
+</head>
+<body>
+    <!-- container do conteúdo principal da página -->
+    <main>
+        <!-- Formulario de requisição - envia os dados para o processamento das informações no "valida.js" -->
+        <form class="login section-area-left" autocomplete="on" action="valida.js">
+            <!-- Wrapper - recorte de sessao -->
+            <div class="wrapper">
+                <!-- Logo da empresa - destaque de imagrm no formulario -->
+                <img class="login_logo" src="./src/img/logo.png" alt="logo riot">
+                <!-- Titulo do formulario -->
+                <h1 class="login_titulo">Fazer Login</h1>
+
+                <!-- Email Place - espaço reservado para input email -->
+                <label class="login_label" for="email">
+                    <span>E-mail</span>
+                    <input id="input" name="email" class="email" type="email">
+                </label>
+                <!-- Password Place - espaço reservado para input senha -->
+                <label class="login_label" for="password">
+                    <span>Senha</span>
+                    <input id="input" name="password" class="password" type="password">
+                    <small>esqueceu a senha?</small>
+                </label>
+
+                <!-- Area de acesso via links sociais (possivél implementação)-->
+                <section class="login_redes">
+                    
+                    <!-- Facebook - Login -->
+                    <a href="www.github.com/cloves-neto/login-logout-js" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/img/facebook.png" alt="facebook logo">
+                    </a>
+
+                    <!-- Google - Login -->
+                    <a href="www.github.com/cloves-neto/login-logout-js" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/img/google.png" alt="google logo">
+                    </a>
+
+                    <!-- Apple - Login -->
+                    <a href="www.github.com/cloves-neto/login-logout-js" target="_blank" rel="noopener noreferrer">
+                        <img src="./src/img/apple.jpg" alt="apple logo">
+                    </a>
+                </section>
+            </div>
+
+            <!-- Wrapper - recorte de sessao -->
+            <div class="wrapper">
+                <!-- Botão submit que envia as informações de login -->
+                <button type="submit" disabled="disabled">
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </button>
+                <!-- Link de redidirecionamento para criar uma conta -->
+                <a href="registro.html" class="login_link">ainda não tem uma conta? <span>criar conta</span></a>
+            </div>
+        </form>
+        <!-- Add wallpaper pelo css; Essa sessão será apenas ilustrativa e não terá uma função definida específica-->
+        <div class="wallpaper section-area-right"></div>
+    </main>
+
+<!-- Import de biblioteca de ícones (ion-icon) -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
