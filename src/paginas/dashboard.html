@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard UI</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="user-area">
+            <img src="../img/logo.png" alt="User Avatar" class="user-avatar">
+            <span class="user-name" id="user-email"></span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Serviços</a>
+                    <div class="dropdown-content">
+                        <a href="#">Serviço 1</a>
+                        <a href="#">Serviço 2</a>
+                        <a href="#">Serviço 3</a>
+                    </div>
+                </li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+                <!-- Botão "Sair" -->
+                <li><button class="logout-button">Sair</button></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <h1>Bem vindo! <span id="user-name"></span>!</h1>
+        <p>Esse é um trabalho construído para a CP3 da aula frontend design da FIAP</p>
+    </div>
+
+    <script>
+        // Verifica se as credenciais do usuário estão presentes no sessionStorage
+        const usuario = sessionStorage.getItem('usuario');
+        const nome = sessionStorage.getItem('nome');
+    
+        if (!usuario || !nome) {
+            // Se as credenciais não estiverem presentes, redireciona para a página de login
+            window.location.href = '../../index.html'; 
+        } else {
+            // Insere o valor do session email no campo
+            const user_email = document.getElementById('user-email');
+            user_email.innerText = JSON.parse(usuario).email;
+
+            const user_name = document.getElementById('user-name');
+            user_name.innerText =JSON.parse(nome).nome;
+    
+            // Seleciona o botão de logout
+            const logoutButton = document.querySelector(".logout-button");
+    
+            // Adiciona um ouvinte de evento de clique ao botão de logout
+            logoutButton.addEventListener('click', () => {
+                // Limpa as credenciais do sessionStorage
+                sessionStorage.removeItem('usuario');
+                sessionStorage.removeItem('nome');
+                // Redireciona para a página de login 
+                window.location.href = '../../index.html';
+            });
+        }
+    </script>
+
+</body>
+</html>
