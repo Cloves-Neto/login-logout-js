@@ -8,7 +8,6 @@
     --txt_cor_principal: #343434; 
 }
 
-
 /* Formatação de estilo principal do projeto */
 main{
     display: flex;
@@ -133,7 +132,7 @@ main{
     max-width: 25px;
 }
 .login_button{
-    background-color: var(--vermelho);
+    background-color: var(--cor_principal);
     width: 60px;
     height: 60px;
     border-radius: 16px;
@@ -142,7 +141,7 @@ main{
     transition: .2s ease;
 }
 .login_button ion-icon{
-    color: white;
+    color: var(--bg_color);
     font-size: 35px;
     cursor: pointer;
 } 
