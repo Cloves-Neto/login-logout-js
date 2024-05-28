@@ -10,10 +10,10 @@
     <!-- container do conteúdo principal da página -->
     <main>
         <!-- Formulario de requisição - envia os dados para o processamento das informações no "valida.js" -->
-        <form class="login section-area-left" autocomplete="on" action="valida.js">
+        <form id="loginForm" class="login section-area-left" >
             <!-- Wrapper - recorte de sessao -->
             <div class="wrapper">
-                <!-- Logo da empresa - destaque de imagrm no formulario -->
+                <!-- Logo da empresa - destaque de imagem no formulario -->
                 <img class="login_logo" src="./src/img/logo.png" alt="logo riot">
                 <!-- Titulo do formulario -->
                 <h1 class="login_titulo">Fazer Login</h1>
@@ -21,18 +21,17 @@
                 <!-- Email Place - espaço reservado para input email -->
                 <label class="login_label" for="email">
                     <span>E-mail</span>
-                    <input id="input" name="email" class="email" type="email">
+                    <input id="email" name="email" class="input email" type="email" required>
                 </label>
                 <!-- Password Place - espaço reservado para input senha -->
                 <label class="login_label" for="password">
                     <span>Senha</span>
-                    <input id="input" name="password" class="password" type="password">
+                    <input id="password" name="password" class="input password" type="password" required>
                     <small>esqueceu a senha?</small>
                 </label>
 
                 <!-- Area de acesso via links sociais (possivél implementação)-->
                 <section class="login_redes">
-
                     <!-- Facebook - Login -->
                     <a href="https://github.com/Cloves-Neto/login-logout-js" target="_blank" rel="noopener noreferrer">
                         <img src="./src/img/facebook.png" alt="facebook logo">
@@ -53,7 +52,7 @@
             <!-- Wrapper - recorte de sessao -->
             <div class="wrapper">
                 <!-- Botão submit que envia as informações de login -->
-                <button class="login_button" type="submit" disabled="disabled">
+                <button class="login_button" onclick="validaDados()" title="Entrar" disabled>
                     <ion-icon name="arrow-forward-outline"></ion-icon>
                 </button>
                 <!-- Link de redidirecionamento para criar uma conta -->
@@ -64,11 +63,41 @@
         <div class="wallpaper section-area-right"></div>
     </main>
 
-<!-- Import de biblioteca de ícones (ion-icon) -->
+    <!-- Import de biblioteca de ícones (ion-icon) -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-<!-- Index.js -->
-<script src="./src/scripts/index.js"></script>
+    <!-- Index.js -->
+    <script src="./src/scripts/index.js"></script>
+    <script>
+        // Verifica se tem uma sessão com credenciais salva e redireciona para a dashboard
+        const usuario = sessionStorage.getItem('usuario');
+        const nome = sessionStorage.getItem('nome');
+        if (usuario && nome) {
+            window.location.href = './src/paginas/dashboard.html'; 
+        }
+    
+
+    // Desestruturação do objeto `dados`
+    const [dado_nome, dado_email, dado_senha] = ['Jhonny Walter', 'teste@email.com', 'teste123'];
+
+    function validaDados() {
+        const recieve_email = document.getElementById('email').value;
+        const recieve_senha = document.getElementById('password').value;
+
+        // Simulação de verificação de login
+        /* Em um cenário real as credenciais são verificadas no banco de dados */
+        if (recieve_email === dado_email && recieve_senha === dado_senha) {
+            window.location = './src/paginas/dashboard.html';
+
+            // Armazenar os detalhes do usuário no sessionStorage
+            sessionStorage.setItem('usuario', JSON.stringify({ email: dado_email }));
+            sessionStorage.setItem('nome', JSON.stringify({ nome: dado_nome }));
+        } else {
+            window.location.href = 'index.html';
+        }
+    };
+
+    </script>
 </body>
 </html>
