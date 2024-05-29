@@ -1,5 +1,8 @@
 # Login e Logout (Javscript)
 
+[![Login.png](https://i.postimg.cc/fLGLFfTf/Login.png)](https://postimg.cc/jwhtnNfD)
+
+
 Esse é um projeto desenvolvido para a CP3 da aula de FrontEnd da FIAP.
 O projeto consiste em um código que faz validação(simbólica) de dados inseridos no formulario de acordo com o salvo no "banco de dados", faz a verificação e libera o acesso ao dashboard.
 
